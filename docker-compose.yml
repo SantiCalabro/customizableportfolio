@@ -13,18 +13,6 @@ services:
     depends_on:
       - db
 
-  front:
-    build:
-      context: ./portfolio
-      dockerfile: Dockerfile
-    container_name: react-front
-    ports:
-      - "3000:3000"
-    volumes:
-      - ./portfolio:/app
-    stdin_open: true
-    tty: true
-
   db:
     image: mysql:8
     container_name: mysql-db

@@ -1,0 +1,27 @@
+.dark {
+  color: var(--dark);
+}
+
+.primary-black {
+  color: var(--primary-black);
+}
+
+.primary-gray {
+  color: var(--primary-gray);
+}
+
+.primary-white {
+  color: var(--primary-white);
+}
+
+.mandarine {
+  color: var(--mandarine);
+}
+
+.poppins {
+  font-family: var(--poppins);
+}
+
+.roboto {
+  font-family: var(--roboto);
+}
