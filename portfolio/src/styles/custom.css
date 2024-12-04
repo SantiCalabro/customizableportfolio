@@ -1,21 +1,21 @@
-.dark {
-  color: var(--dark);
+.bg-dark {
+  background-color: var(--dark);
 }
 
-.primary-black {
-  color: var(--primary-black);
+.bg-primary-black {
+  background-color: var(--primary-black);
 }
 
-.primary-gray {
-  color: var(--primary-gray);
+.bg-gray {
+  background-color: var(--primary-gray);
 }
 
-.primary-white {
-  color: var(--primary-white);
+.bg-white {
+  background-color: var(--primary-white);
 }
 
-.mandarine {
-  color: var(--mandarine);
+.bg-mandarine {
+  background-color: var(--mandarine);
 }
 
 .poppins {
@@ -24,4 +24,24 @@
 
 .roboto {
   font-family: var(--roboto);
+}
+
+.black {
+  color: var(--primary-black);
+}
+
+.gray {
+  color: var(--primary-gray);
+}
+
+.white {
+  color: var(--primary-white);
+}
+
+.mandarine {
+  color: var(--mandarine);
+}
+
+.section-active{
+  color: var(--mandarine);
 }
