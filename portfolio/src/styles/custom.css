@@ -5,6 +5,9 @@
 .bg-primary-black {
   background-color: var(--primary-black);
 }
+.hover\:bg-primary-black:hover {
+  background-color: var(--primary-black);
+}
 
 .bg-gray {
   background-color: var(--primary-gray);
