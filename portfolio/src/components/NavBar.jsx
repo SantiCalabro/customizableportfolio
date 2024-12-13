@@ -15,8 +15,8 @@ export default function NavBar() {
       </div>
       <div className='flex flex-col w-fit flex justify-center pt-10'>
         <a className='flex white my-4 text-sm poppins font-semibold section-active' href="/#about"><img className="mr-4" src={About} alt="About Me" /> About Me</a>
-        <a className='flex white my-4 text-sm poppins font-semibold' href="/#education"> <img className="mr-4" src={Education} alt="Education" />Education</a>
         <a className='flex white my-4 text-sm poppins font-semibold' href="/#experience"><img className="mr-4" src={Experience} alt="Professional Experience" />Professional Experience</a>
+        <a className='flex white my-4 text-sm poppins font-semibold' href="/#education"> <img className="mr-4" src={Education} alt="Education" />Education</a>
         <a className='flex white my-4 text-sm poppins font-semibold' href="/#stack"> <img className="mr-4" src={Stack} alt="My Stack" />My Stack</a>
         <a className='flex white my-4 text-sm poppins font-semibold' href="/#projects"><img className="mr-4" src={Projects} alt="My Projects" />My Projects</a>
         <a className='flex white my-4 text-sm poppins font-semibold' href="/#contact"><img className="mr-4" src={Contact} alt="Contact Me" />Contact Me</a>

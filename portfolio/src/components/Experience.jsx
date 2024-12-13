@@ -2,7 +2,7 @@ import ExperienceIcon from "../assets/experience.svg"
 
 export default function Experience() {
   return (
-    <div className="bg-primary-black flex flex-col w-full">
+    <div id="experience" className="bg-primary-black flex flex-col w-full">
         <div className="flex items-center bg-white h-10 w-50 pl-10">
             <h3 className="flex roboto text-lg font-medium">
                 <img src={ExperienceIcon} alt="My Professional Experience" className="mr-2 filter invert"/>
