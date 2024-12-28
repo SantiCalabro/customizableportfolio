@@ -12,6 +12,9 @@
 .bg-gray {
   background-color: var(--primary-gray);
 }
+.bg-secondary-gray {
+  background-color: var(--secondary-gray);
+}
 
 .bg-white {
   background-color: var(--primary-white);
