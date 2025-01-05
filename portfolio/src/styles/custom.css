@@ -48,16 +48,16 @@
   color: var(--mandarine);
 }
 
-.section-active{
+.section-active {
   color: var(--mandarine);
 }
-.border-b-mandarine{
+.border-b-mandarine {
   border-bottom: solid 1px var(--mandarine);
 }
-.border-mandarine{
+.border-mandarine {
   border: solid 1px var(--mandarine);
 }
-.border-primary-black{
+.border-primary-black {
   border: solid 1px var(--primary-black);
 }
 .hover\\:rotate-45:hover {
@@ -69,11 +69,11 @@
 }
 
 .scroll-container {
-  overflow-x: scroll; 
+  overflow-x: scroll;
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
 
 .scroll-container::-webkit-scrollbar {
-  display: none; 
+  display: none;
 }

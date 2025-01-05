@@ -54,7 +54,7 @@ const Dropdown = () => {
       </button>
       {isOpen.dev && (
         <div
-          className=" right-0 py-10 w-full origin-top-right bg-dark shadow-lg ring-1 ring-black ring-opacity-5 transition-all duration-300 ease-in-out max-h-[500px] opacity-100 overflow-hidden"
+          className=" right-0 py-10 w-full origin-top-right bg-dark shadow-lg ring-1 ring-black ring-opacity-5 transition-all duration-500 ease-in-out max-h-[500px] opacity-100 overflow-hidden"
           style={{
             maxHeight: isOpen.dev ? "500px" : "0",
             opacity: isOpen.dev ? 1 : 0,
