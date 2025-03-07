@@ -1,14 +1,26 @@
-@import './styles/variables.css';
-@import './styles/custom.css';
+@import "./styles/variables.css";
+@import "./styles/custom.css";
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-*{
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
-  
+.roboto {
+  font-family: "Roboto Slab", serif;
+}
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
+}
+
+@layer utilities {
+  .max-w-0 {
+    max-width: 0px;
   }
+  .max-w-full {
+    max-width: 100%;
+  }
+}

@@ -1,5 +1,6 @@
 import BackgroundImage from "../assets/background.webp";
 import HeaderLogo from "../assets/header-logo.svg";
+import Hero from "../components/Hero";
 import Experience from "../components/Experience";
 import CallToAction from "../components/CallToAction";
 import Education from "../components/Education";
@@ -15,9 +16,8 @@ export default function Home() {
     <div
       className={`${
         nav ? "pl-64" : "pl-24"
-      } pt-20 flex flex-col items-center bg-black bg-contain bg-repeat duration-500 ease-in-out`}
-      style={{ backgroundImage: `url(${BackgroundImage})` }}>
-      <img
+      } pt-20 flex flex-col items-center bg-black bg-contain bg-repeat duration-500 ease-in-out`}>
+      {/* <img
         src={HeaderLogo}
         className="w-6/12"
         alt="Santiago Calabró - Software Developer"
@@ -30,7 +30,8 @@ export default function Home() {
         alt="Explore My Strengths"
         file="../../public/CliftonStrengths.pdf"
         download={true}
-      />
+      /> */}
+      <Hero />
       <Experience />
       <CallToAction
         img={Atom}
