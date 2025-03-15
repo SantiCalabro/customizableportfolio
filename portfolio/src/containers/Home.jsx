@@ -17,20 +17,7 @@ export default function Home() {
       className={`${
         nav ? "pl-64" : "pl-24"
       } pt-20 flex flex-col items-center bg-black bg-contain bg-repeat duration-500 ease-in-out`}>
-      {/* <img
-        src={HeaderLogo}
-        className="w-6/12"
-        alt="Santiago Calabró - Software Developer"
-      />
-      <CallToAction
-        img={Atom}
-        title="Explore My Strengths"
-        body="I’ve identified my key strengths through the Gallup Clifton Strengths assessment. To find out more about how these strengths can benefit your project, click the button below to see my certificate"
-        button="Check out my results"
-        alt="Explore My Strengths"
-        file="../../public/CliftonStrengths.pdf"
-        download={true}
-      /> */}
+     
       <Hero />
       <Experience />
       <CallToAction
@@ -40,19 +27,22 @@ export default function Home() {
         button="Get in touch"
         alt="Let’s Create Something Great Together"
         file="contact"
-        bg="bg-dark"
+        
       />
-      <Education />
+      <Projects />
       <Stack />
       <CallToAction
         img={Rocket}
-        title="Continuously Growing"
-        body="Technology is constantly evolving, and so am I. I’m passionate about expanding my knowledge and staying up-to-date with the latest tools and techniques to ensure I’m always delivering the best solutions."
-        button="Get in touch"
-        alt="Continuously Growing"
-        file="contact"
+        title="Explore My Stregths"
+        body={`I’ve identified my key strengths through the <strong class="font-black">Gallup Clifton Strengths</strong> assessment. To find out more about how these strengths can benefit your project, click the button below to see my certificate.`}
+        button="Check out my results"
+        alt="Explore My Stregths"
+        file="download"
+        download={true}
       />
-      <Projects />
+      <Education />
+     
+  
       <Contact />
     </div>
   );

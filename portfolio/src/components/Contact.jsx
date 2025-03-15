@@ -1,5 +1,5 @@
 import { useState } from "react";
-import contactIcon from "../assets/ContactBlack.svg";
+import contactIcon from "../assets/contact.svg";
 export default function Contact() {
   const [input, setInput] = useState({
     fullName: "",
@@ -67,80 +67,118 @@ export default function Contact() {
     }
   };
   return (
-    <div id="contact" className="flex justify-center items-center my-20">
-      <div className="rounded-xl bg-white w-4/5 flex flex-col justify-center items-center p-10 px-20">
-        <img src={contactIcon} alt="Contact me" />
-        <h3 className="font-bold poppins dark text-2xl text-center mt-2">
-          Let's Connect!
-        </h3>
-        <p className="poppins text-sm dark text-center mt-2 ">
-          If you have any questions, a project in mind or a comment, you can
+    <div id="contact" className="flex w-full px-14 justify-center items-center my-20 gap-20 pr-40">
+      
+      <div className="flex flex-col justify-center items-center w-1/2">
+        <div className="flex items-center w-full">
+          <img className="w-8" src={contactIcon} alt="Contact me" />
+          <h3 className="font-bold mandarine  white text-4xl text-center ml-4 mt-[-5px]">
+            Let's Connect!
+          </h3>
+        </div>
+        <p className=" white mt-5 w-full">
+          If you have any questions, a project in mind or a comment, <br className="mobile-hidden"/>you can
           write to me by completing the following form.
         </p>
         <div className="w-full mt-10">
-          <form className="flex flex-col items-center" onSubmit={handleSubmit}>
-            {[
-              {
-                label: "Full Name*",
-                name: "fullName",
-                type: "text",
-                placeholder: "Name",
-              },
-              {
-                label: "Company Name*",
-                name: "companyName",
-                type: "text",
-                placeholder: "Company Name",
-              },
-              {
-                label: "Email*",
-                name: "email",
-                type: "email",
-                placeholder: "Email",
-              },
-              {
-                label: "Message*",
-                name: "message",
-                type: "textarea",
-                placeholder: "Your message",
-              },
-            ].map((field) => (
-              <div key={field.name} className="flex flex-col w-full my-2">
-                <label className="poppins mb-1 text-sm">{field.label}</label>
-                {field.name === "message" ? (
-                  <textarea
-                    placeholder={field.placeholder}
-                    className="border border-gray rounded-md poppins p-2 text-sm h-36 focus:outline-none"
-                    name={field.name}
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                  />
-                ) : (
-                  <input
-                    onChange={handleChange}
-                    name={field.name}
-                    onBlur={handleBlur}
-                    type={field.type}
-                    placeholder={field.placeholder}
-                    className="border border-gray rounded-md poppins p-2 text-sm focus:outline-none"
-                  />
-                )}
-                {errors[field.name] && touched[field.name] && (
-                  <p className="poppins text-xs mt-1 text-red-500">
-                    {errors[field.name]}
-                  </p>
-                )}
-              </div>
-            ))}
-            <button
-              type="submit"
-              className={`poppins font-bold font-sm ${
-                disabled ? "disabled bg-secondary-gray" : "bg-primary-black"
-              }  px-20 py-1 rounded-full white mt-3`}>
-              Submit
-            </button>
-          </form>
+  <form className="flex flex-col" onSubmit={handleSubmit}>
+    <div className="flex space-x-4">
+      {[
+        {
+          label: "Full Name*",
+          name: "fullName",
+          type: "text",
+          placeholder: "Name",
+        },
+        {
+          label: "Company Name*",
+          name: "companyName",
+          type: "text",
+          placeholder: "Company Name",
+        },
+      ].map((field) => (
+        <div key={field.name} className="flex flex-col w-1/2 my-2">
+          <label className=" mb-1 text-sm white">{field.label}</label>
+          <input
+            onChange={handleChange}
+            name={field.name}
+            onBlur={handleBlur}
+            type={field.type}
+            placeholder={field.placeholder}
+            className="bg-transparent border border-gray rounded-md white p-2 text-sm focus:outline-none"
+          />
+          {errors[field.name] && touched[field.name] && (
+            <p className=" text-xs mt-1 text-red-500">
+              {errors[field.name]}
+            </p>
+          )}
         </div>
+      ))}
+    </div>
+    {[
+      {
+        label: "Email*",
+        name: "email",
+        type: "email",
+        placeholder: "Email",
+      },
+      {
+        label: "Message*",
+        name: "message",
+        type: "textarea",
+        placeholder: "Your message",
+      },
+    ].map((field) => (
+      <div key={field.name} className="flex flex-col w-full my-2">
+        <label className=" mb-1 text-sm white">{field.label}</label>
+        {field.name === "message" ? (
+          <textarea
+            placeholder={field.placeholder}
+            className="bg-transparent border border-gray rounded-md white p-2 text-sm h-36 focus:outline-none"
+            name={field.name}
+            onChange={handleChange}
+            onBlur={handleBlur}
+          />
+        ) : (
+          <input
+            onChange={handleChange}
+            name={field.name}
+            onBlur={handleBlur}
+            type={field.type}
+            placeholder={field.placeholder}
+            className="bg-transparent border border-gray rounded-md white p-2 text-sm focus:outline-none"
+          />
+        )}
+        {errors[field.name] && touched[field.name] && (
+          <p className=" text-xs mt-1 text-red-500">
+            {errors[field.name]}
+          </p>
+        )}
+      </div>
+    ))}
+
+
+    <button
+      type="submit"
+      className={`w-fit self-end  font-bold font-sm ${
+        disabled ? "disabled bg-secondary-gray" : "bg-mandarine"
+      } px-20 py-1 rounded-full white mt-3`}
+    >
+      Submit
+    </button>
+  </form>
+</div>
+      </div>
+
+      <div className="flex flex-col items-center w-1/2 relative aspect-video">
+          <iframe  
+          className="w-full h-full rounded-xl"
+          src="https://www.youtube.com/embed/xqpdhxrupRw" 
+          title="YouTube video player" 
+          frameborder="0" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+          allowfullscreen>
+          </iframe>
       </div>
     </div>
   );

@@ -1,3 +1,4 @@
+/* BACKGROUNDS */
 .bg-dark {
   background-color: var(--dark);
 }
@@ -9,9 +10,14 @@
   background-color: var(--primary-black);
 }
 
-.bg-gray {
+.bg-primary-gray {
   background-color: var(--primary-gray);
 }
+
+.bg-gray {
+  background-color: var(--gray);
+}
+
 .bg-secondary-gray {
   background-color: var(--secondary-gray);
 }
@@ -24,14 +30,45 @@
   background-color: var(--mandarine);
 }
 
-.poppins {
-  font-family: var(--poppins);
+.mandarine-gradient {
+  background: linear-gradient(to bottom, rgba(255, 117, 81, 0.2) 15%, transparent 85%);
+}
+.mandarine-gradient-reverse {
+  background: linear-gradient(to top, rgba(255, 117, 81, 0.2) 15%, transparent 85%);
+}
+.gray-gradient {
+  background: linear-gradient(to bottom, rgba(30, 30, 30, 1) 15%, transparent 85%);
+}
+/* BORDERS */
+.border-mandarine {
+  border: solid 1px var(--mandarine);
 }
 
-.roboto {
-  font-family: var(--roboto);
+.border-b-mandarine {
+  border-bottom: solid 1px var(--mandarine);
 }
 
+.border-t-mandarine {
+  border-top: solid 1px var(--mandarine);
+}
+
+.border-primary-black {
+  border: solid 1px var(--primary-black);
+}
+
+.border-gray {
+  border: solid 1px var(--gray);
+}
+
+.border-b-gray {
+  border-bottom: solid 1px var(--gray);
+}
+
+.border-l-gray {
+  border-left: 1px solid var(--gray);
+}
+
+/* TEXT COLORS */
 .black {
   color: var(--primary-black);
 }
@@ -51,26 +88,22 @@
 .section-active {
   color: var(--mandarine);
 }
-.border-b-mandarine {
-  border-bottom: solid 1px var(--mandarine);
-}
-.border-t-mandarine {
-  border-top: solid 1px var(--mandarine);
-}
-.border-mandarine {
-  border: solid 1px var(--mandarine);
-}
-.border-primary-black {
-  border: solid 1px var(--primary-black);
-}
-.hover\\:rotate-45:hover {
-  transform: rotate(45deg);
+
+/* TYPOGRAPHY */
+.roboto {
+  font-family: var(--roboto);
 }
 
+/* TRANSITIONS & EFFECTS */
 .rotate-transition {
   transition: transform 0.5s ease-in-out;
 }
 
+.hover\\:rotate-45:hover {
+  transform: rotate(45deg);
+}
+
+/* SCROLL */
 .scroll-container {
   overflow-x: scroll;
   -ms-overflow-style: none;
@@ -79,4 +112,11 @@
 
 .scroll-container::-webkit-scrollbar {
   display: none;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .mobile-hidden {
+    display: none;
+  }
 }

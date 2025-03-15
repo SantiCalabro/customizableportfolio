@@ -73,7 +73,7 @@ export default function NavBar() {
     <div
       className={`duration-500 ease-in-out z-50 shadow shadow-lg fixed flex flex-col ${
         nav ? "w-64" : "w-24"
-      } bg-dark h-screen rounded-tr-2xl rounded-br-2xl items-center pt-5`}>
+      } bg-dark h-screen rounded-tr-2xl items-center pt-5`}>
       <div
         onClick={expandOrShrink}
         className="cursor-pointer bg-mandarine w-5 h-5 absolute right-0 -mr-2 flex justify-center items-center rounded-full top-1/2 transform -translate-y-1/2">
