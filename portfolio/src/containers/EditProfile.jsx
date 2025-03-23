@@ -7,9 +7,11 @@ import Rocket from "../assets/rocket.svg"
 export default function EditProfile() { 
   const nav = useSelector((state) => state.nav)
   return (
-    <div className={`${
-      nav ? "pl-64" : "pl-24"
-    } pt-20 flex flex-col items-center bg-black bg-contain bg-repeat duration-500 ease-in-out h-screen`}> 
+    <div
+      className={`${
+        nav ? "pl-64" : "pl-24"
+      } pt-20 flex flex-col items-center bg-black bg-contain bg-repeat duration-500 ease-in-out`}>
+     
    
         <div className="w-full px-10 pb-5 border-b-mandarine text-xl">
           <h3 className="white font-light"><strong className="font-bold">Add or Update</strong> information about you</h3>

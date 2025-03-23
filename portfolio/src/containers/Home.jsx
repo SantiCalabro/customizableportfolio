@@ -1,5 +1,3 @@
-import BackgroundImage from "../assets/background.webp";
-import HeaderLogo from "../assets/header-logo.svg";
 import Hero from "../components/Hero";
 import Experience from "../components/Experience";
 import CallToAction from "../components/CallToAction";
@@ -41,8 +39,6 @@ export default function Home() {
         download={true}
       />
       <Education />
-     
-  
       <Contact />
     </div>
   );

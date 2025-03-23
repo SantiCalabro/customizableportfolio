@@ -7,8 +7,51 @@ export default function EditExperience() {
 
   const handleUpdate = (state) => {
     setShowUpdateForm(state)
-    console.log(showUpdateForm)
   }
+  const formFields = [
+    {
+      label: "Position",
+      id: "position",
+      placeholder: "Full Stack Developer",
+      width: "w-full",
+      styles: "mb-5",
+    },
+    {
+      label: "Company",
+      id: "company",
+      placeholder: "Company Name",
+      width: "w-full",
+      styles: "mb-5",
+    },
+    {
+      label: "Starting Year",
+      id: "starting",
+      placeholder: "Select Date",
+      width: "w-[49%]",
+      type: "date",
+    },
+    {
+      label: "Finished On",
+      id: "finished",
+      placeholder: "Select Date",
+      width: "w-[49%]",
+      type: "date",
+    },
+    {
+      label: "Location",
+      id: "location",
+      placeholder: "Buenos Aires, Argentina",
+      width: "w-full",
+      styles: "mb-5",
+    },
+    {
+      label: "Job description",
+      id: "job-description",
+      placeholder: "Your Description Here",
+      fieldType: "textarea",
+      width: "w-full",
+    },
+  ]
   
   return (
     <div className="flex flex-col w-full gap-10 px-40 py-20">
@@ -17,8 +60,8 @@ export default function EditExperience() {
         <ListItem handleUpdate={handleUpdate} title="Freelance Designer and Web Developer" date="(February 2020 - June 2024)" description='As a freelance designer, I have worked on branding projects and designed a variety of printed materials, such as brochures, banners, and editorial layouts. I also create digital assets, including newsletters and social media flyers. My experience includes developing websites using CMS platforms like Wix and Shopify, as well as custom-coded sites with various technologies. Additionally, I handle basic video editing tasks.' />
       </div>
       <div className="">
-        <FormSecondary />
-        {showUpdateForm && <UpdateForm handleUpdate={handleUpdate} />}
+        <FormSecondary formFields={formFields}/>
+        {showUpdateForm && <UpdateForm handleUpdate={handleUpdate} title="Edit Experience" role="Hogarth" formFields={formFields}/>}
       </div>
     </div>
   )

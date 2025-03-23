@@ -67,7 +67,9 @@
 .border-b-gray {
   border-bottom: solid 1px var(--gray);
 }
-
+.border-b-primary-gray {
+  border-bottom: solid 1px var(--primary-gray);
+}
 .border-l-gray {
   border-left: 1px solid var(--gray);
 }
