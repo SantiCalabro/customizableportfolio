@@ -17,7 +17,9 @@
 .bg-gray {
   background-color: var(--gray);
 }
-
+.bg-gray-opacity {
+  background-color: rgba(18, 18, 18, 0.3)
+}
 .bg-secondary-gray {
   background-color: var(--secondary-gray);
 }
@@ -55,7 +57,9 @@
 .border-primary-black {
   border: solid 1px var(--primary-black);
 }
-
+.border-primary-gray{
+  border: solid 1px var(--primary-gray);
+}
 .border-gray {
   border: solid 1px var(--gray);
 }

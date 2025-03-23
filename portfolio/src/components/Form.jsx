@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import contactIcon from "../assets/ContactBlack.svg";
 
 export default function Contact() {

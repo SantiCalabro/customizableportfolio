@@ -24,9 +24,9 @@ const Dropdown = () => {
       </div>
       <div className="flex flex-col">
       <span className="w-fit black bg-mandarine text-left px-4 py-1 rounded-md font-black uppercase text-xs tracking-wide">For Design</span>
-        <div
+      <div
           className="mt-5 w-full">
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-7 2xl:grid-cols-9 gap-4 ">
+          <div className="2xl:w-10/12 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-7 2xl:grid-cols-7 gap-4 ">
             {Array.from({ length: 4 }).map((_, index) => (
               <Chip
                 key={index}

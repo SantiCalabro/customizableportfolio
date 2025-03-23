@@ -1,11 +1,18 @@
 import NavBar from './components/NavBar'
 import Home from "./containers/Home"
-function App() {
+import EditProfile from './containers/EditProfile';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+  function App() {
 
   return (
     <>
-      <NavBar/>
-      <Home/>
+      <BrowserRouter>
+        <NavBar/>
+        <Routes>
+          <Route path="/" element={ <Home/>}/>
+          <Route path="/profile" element={ <EditProfile/>}/>
+        </Routes>
+      </BrowserRouter>
     </>
   )
 }

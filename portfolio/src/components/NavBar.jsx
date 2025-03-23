@@ -86,20 +86,21 @@ export default function NavBar() {
 
       <div className="py-5  w-full flex justify-center h-[70px] relative">
         <div className="relative w-full h-8">
-          <img
+          <a href="/"><img
             src={Logo}
             alt="Santiago Calabró Dev"
             className={`absolute left-1/2 -translate-x-1/2 transition-all duration-500 ${
               nav ? "opacity-100 max-w-full" : "opacity-0 max-w-0"
             }`}
-          />
-          <img
+          /></a>
+          <a href="/"><img
             src={LogoShrinked}
             alt="Santiago Calabró Dev"
             className={`absolute left-1/2 -translate-x-1/2 transition-all duration-500 ${
               nav ? "opacity-0 max-w-0" : "opacity-100 max-w-full"
             }`}
           />
+          </a>
         </div>
       </div>
 
@@ -139,7 +140,7 @@ export default function NavBar() {
           ? "max-w-52 rounded-full p-3 ml-2"
           : "max-w-14 rounded-full p-3 mx-auto"
       }`}
-          href="#">
+          href="/profile">
           <img
             className="brightness-200 shrink-0 transition-transform"
             src={AboutWhite}
