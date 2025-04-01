@@ -57,7 +57,6 @@ export default function Contact() {
     });
     if (Object.keys(newErrors).length === 0) {
       alert("Form submitted successfully!");
-      // Aquí iría la lógica para enviar el formulario, como una API call.
     }
   };
 

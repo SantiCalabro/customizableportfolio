@@ -2,6 +2,7 @@ import ProjectCard from "./ProjectCard";
 import PlayExpert from "../assets/PlayExpert.webp";
 import FormTertiary from "./FormTertiary";
 import { useState } from "react"
+import UpdateForm from "./UpdateForm";
 
 export default function EditProjects() {
     const [showUpdateForm, setShowUpdateForm] = useState(false)
@@ -30,12 +31,12 @@ export default function EditProjects() {
         placeholder: "Link to the live project",
         width: "w-full",
         type: "date",
+        styles: "mb-5",
       },
       {
         label: "Discipline",
         id: "discipline",
         width: "w-full",
-        styles: "mb-5",
       },
       {
         label: "Project Description",
@@ -43,18 +44,19 @@ export default function EditProjects() {
         placeholder: "Your Description Here",
         fieldType: "textarea",
         width: "w-full h-full",
+        styles: "mb-5",
       },
       {
         label: "Featured Image",
         id: "featured",
-        width: "w-1/4",
-        type: 'file'
+        width: "w-[25%]",
+        type: 'file',
       },
       {
         label: "Multimedia",
         id: "multimedia",
         fieldType: "files",
-        width: "w-3/4",
+        width: "w-[72%]",
       },
     ]
   return (
@@ -94,7 +96,7 @@ export default function EditProjects() {
       />
     </div>
     <FormTertiary formFields={formFields}/>
-    
+        {showUpdateForm && <UpdateForm handleUpdate={handleUpdate} title="Edit Experience" role="Hogarth" formFields={formFields}/>}
     </div>
   );
 }

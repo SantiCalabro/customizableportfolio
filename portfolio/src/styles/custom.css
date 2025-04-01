@@ -126,3 +126,14 @@
     display: none;
   }
 }
+
+/* APPEARANCE *//* Oculta los spinners en inputs de tipo number */
+input[type="number"] {
+  -moz-appearance: textfield; /* Firefox */
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none; /* Chrome, Safari */
+  margin: 0;
+}
