@@ -61,7 +61,7 @@ export default function EditEducation() {
   };
   const formFields = [
     {
-      label: "Degree",
+      label: "Degrees",
       name: "degree",
       id: "degree",
       placeholder: "Full Stack Developer",
