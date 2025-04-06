@@ -1,29 +1,7 @@
 import experienceIcon from "../assets/experience-white.svg"
 import FormField from "./FormField"
-import plusIcon from "../assets/plus-icon.svg"
-export default function FormSecondary({formFields, handleSubmit, errors, setErrors, touched, setTouched, formData, setFormData, validate}) {
-
-    const handleChange = (e) => {
-      const { name, value } = e.target;
-      setFormData((prev) => ({ ...prev, [name]: value }));
-      if (touched[name]) {
-        setErrors((prev) => ({
-          ...prev,
-          [name]: validate()[name],
-        }));
-      }
-    };
-  
-    const handleBlur = (e) => {
-      const { name } = e.target;
-      setTouched((prev) => ({ ...prev, [name]: true }));
-      setErrors((prev) => ({
-        ...prev,
-        [name]: validate()[name],
-      }));
-    };
-  
-   
+export default function FormSecondary({ fields, values, errors, touched, handleChange, handleBlur, onSubmit}) {
+console.log(fields)
   return (
     <div className="flex flex-col">
         <div className="pt-4 pb-8 px-10 rounded-t-2xl header flex bg-mandarine">
@@ -31,43 +9,43 @@ export default function FormSecondary({formFields, handleSubmit, errors, setErro
           <h4 className="white font-bold ml-2">Add A Professional Experience</h4>
         </div>
         <div className="mt-[-20px]">
-        <form action="submit" onSubmit={handleSubmit}>
+        <form action="submit" onSubmit={onSubmit}>
             <div className="flex border-primary-gray border-t-0 rounded-2xl pt-5 pb-10 px-10 gap-10 bg-black">
                 <div className="flex flex-wrap justify-between w-1/2 pt-5">
-                {formFields && formFields.slice(0, 4).map((field, index) => (
+                {fields && fields.slice(0, 4).map((field, index) => (
                     <FormField
-                    handleBlur={handleBlur}
-                    value={formData[field.name]}
-                    handleChange={handleChange}
                     key={index}
+                    field={field}
                     label={field.label}
-                    id={field.id}
-                    placeholder={field.placeholder}
+                    value={values[field.name] }
+                    name={field.name}
+                    placeholder = {field.placeholder}
                     width={field.width}
                     styles={field.styles}
-                    type={field.type}
-                    errors={errors[field.name]}
+                    error={errors[field.name]}
                     touched={touched[field.name]}
-                    name={field.name}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    type={field.type || "text"}
                     />
                 ))}
                 </div>
                 <div className="flex flex-wrap justify-between w-1/2 pt-5">
-                {formFields && formFields.slice(4).map((field, index) => (
+                {fields && fields.slice(4).map((field, index) => (
                     <FormField
-                    handleBlur={handleBlur}
-                    value={formData[field.name]}
-                    handleChange={handleChange}
                     key={index}
+                    field={field}
                     label={field.label}
-                    id={field.id}
-                    placeholder={field.placeholder}
+                    value={values[field.name] }
+                    name={field.name}
+                    placeholder = {field.placeholder}
                     width={field.width}
                     styles={field.styles}
-                    type={field.type}
-                    errors={errors[field.name]}
-                    touched={touched[field.name]} 
-                    name={field.name}
+                    error={errors[field.name]}
+                    touched={touched[field.name]}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    type={field.type || "text"}
                     fieldType={field.fieldType}
                     />
                 ))}

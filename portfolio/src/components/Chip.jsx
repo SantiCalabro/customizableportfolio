@@ -1,4 +1,4 @@
-export default function Chip({ tech, icon, alt, type }) {
+export default function Chip({ tech, icon, alt, type, handleRemove, id, profession }) {
   return (
     <div className={`flex  shadow-2xl w-fit px-5   items-center ${type === "edit" ? "border-mandarine rounded-full py-2" : "border-gray rounded-lg py-3"}`}>
     {type !== "edit" && 
@@ -10,7 +10,7 @@ export default function Chip({ tech, icon, alt, type }) {
         {tech}
       </span>
       {type === "edit" && 
-      <div className="flex pl-3 ">
+      <div className="flex pl-3" onClick={()=>handleRemove(id, profession)}>
        <img src={icon} alt={alt} className="w-4 h-auto max-w-none cursor-pointer" />
       </div>
     }

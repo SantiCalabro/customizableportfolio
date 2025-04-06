@@ -70,7 +70,6 @@ export default function PersonalInformation() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(profile);
     alert("Form submitted successfully!");
 
   };
