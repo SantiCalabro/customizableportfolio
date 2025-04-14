@@ -108,11 +108,13 @@ export default function EditExperience() {
 
   const saveExperience = (formData, id) => {
     setExperiences(prev => {
+      console.log(formData)
       if(id){
         const updatedExperience = prev.map(el => el.id === id ? {... el, ...formData} : el )
         return updatedExperience
+      }else{
+        return [...prev, {...formData, id: crypto.randomUUID()}]
       }
-      return [...prev, formData]
     }) 
   };
   return (

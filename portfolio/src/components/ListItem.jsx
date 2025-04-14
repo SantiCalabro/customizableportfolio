@@ -2,7 +2,7 @@ import editPen from '../assets/edit-pen-black.svg'
 import blackCross from '../assets/black-cross.svg'
 import UpdateForm from './UpdateForm'
 export default function ListItem({index, handleUpdate, showUpdateForm, el, filterState, fields, values, errors, touched, handleChange, handleBlur, saveItem}) {
-    const {id, company, location, startingDate, finishingDate, position, description, degree, institution} = el;
+    const {id, company, location, startingDate, finishingDate, position, description, degree, institution, file} = el;
   return (
     <>
         <div className="w-full border-primary-gray flex flex-col rounded-lg relative">
@@ -16,15 +16,22 @@ export default function ListItem({index, handleUpdate, showUpdateForm, el, filte
                     <h3 className="text-3xl mandarine font-bold">{degree && degree}</h3>
                     <p className="white font-light text-sm">{location && location} ({startingDate && startingDate}) - ({finishingDate ? finishingDate : "Present"})</p>
                 </div>
-                <div className="flex flex-col">
+                <div className="flex flex-col relative">
                     <span className="white font-bold mb-1 text-lg">{position && position}</span>
                     <span className="white font-bold mb-1 text-lg">{institution && institution}</span>
                     <p className="white w-2/3 font-light">{description && description}</p>
+                    {file && <a href={file} download="certificate.pdf" className="bg-white text-black px-5 py-1 rounded-full font-black mt-5 w-fit">See Certificate</a>
+}
                 </div>
             </div>
         </div>
-        {showUpdateForm !== ''  && <UpdateForm key={index} saveItem={saveItem} handleUpdate={handleUpdate} showUpdateForm={showUpdateForm} fields={fields} 
-         values={{ ...values, ...showUpdateForm }}
+        {showUpdateForm !== ''  && <UpdateForm 
+          key={index} 
+          saveItem={saveItem} 
+          handleUpdate={handleUpdate} 
+          showUpdateForm={showUpdateForm} 
+          fields={fields} 
+          values={{ ...values, ...showUpdateForm }}
           errors={errors}
           touched={touched}
           handleChange={handleChange}

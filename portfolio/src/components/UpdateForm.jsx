@@ -22,8 +22,9 @@ export default function UpdateForm({handleUpdate, showUpdateForm, fields, values
     <div className="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm flex items-center justify-center">
       <div className="bg-primary-gray py-10 px-10 rounded-xl border-t-[25px] border-t-mandarine w-2/6 relative">
         <div className="header">
-          <h4 className="white text-2xl font-bold">{formValues.company}</h4>
-          <p className="white font-light text-xs">For {formValues.position}</p>
+          <h4 className="white text-2xl font-bold">{formValues.company && formValues.company}</h4>
+          <h4 className="white text-2xl font-bold">{formValues.degree && formValues.degree}</h4>
+          <p className="white font-light text-xs">For {formValues.position && formValues.position}{formValues.institution && formValues.institution}</p>
         </div>
         <img src={cross} alt="exit" className='absolute right-5 top-5 cursor-pointer' onClick={() => handleUpdate('')} />
         <div className="form mt-4">

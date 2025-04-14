@@ -12,7 +12,8 @@ export default function EditEducation() {
       finishingDate: "June 2024",
       location: "Buenos Aires, Argentina",
       degree: "Full Stack Developer",
-      description:'I worked on the migration of over 90 Coca-Cola Company websites globally, including collaboration in coordination tasks with Project Managers from different parts of the world.'
+      description:'I worked on the migration of over 90 Coca-Cola Company websites globally, including collaboration in coordination tasks with Project Managers from different parts of the world.',
+      file: "CliftonStrengths.pdf",
     },
     {
       id:5,
@@ -20,7 +21,8 @@ export default function EditEducation() {
       degree: "Graphic Designer",
       startingDate: "February 2020",
       finishingDate: "June 2024",
-      description:'As a freelance designer, I have worked on branding projects and designed a variety of printed materials, such as brochures, banners, and editorial layouts. I also create digital assets, including newsletters and social media flyers. My experience includes developing websites using CMS platforms like Wix and Shopify, as well as custom-coded sites with various technologies. Additionally, I handle basic video editing tasks.'
+      description:'As a freelance designer, I have worked on branding projects and designed a variety of printed materials, such as brochures, banners, and editorial layouts. I also create digital assets, including newsletters and social media flyers. My experience includes developing websites using CMS platforms like Wix and Shopify, as well as custom-coded sites with various technologies. Additionally, I handle basic video editing tasks.',
+      file: "CliftonStrengths.pdf",
     },
   ]
   const [showUpdateForm, setShowUpdateForm] = useState('')
@@ -32,7 +34,7 @@ export default function EditEducation() {
     touched,
     handleChange,
     handleBlur,
-    handleSubmit
+    handleSubmit,
   } = useForm(initialEducationValues, educationValidation);
   
 
@@ -56,7 +58,7 @@ export default function EditEducation() {
         const updatedExperience = prev.map(el => el.id === id ? {... el, ...formData} : el )
         return updatedExperience
       }
-      return [...prev, formData]
+      return [...prev, {...formData, id: crypto.randomUUID()}]
     }) 
   };
   const formFields = [
@@ -106,7 +108,8 @@ export default function EditEducation() {
       name: "certificate",
       fieldType: "file",
       type: "file",
-      width: "w-full h-full",
+      width: "w-full h-40",
+      
     },
   ]
   
@@ -133,7 +136,9 @@ export default function EditEducation() {
                   touched={touched}
                   handleChange={handleChange}
                   handleBlur={handleBlur} 
-                  onSubmit={handleSubmit(saveEducation)} />
+                  onSubmit={handleSubmit(saveEducation)} 
+                  
+                  />
           </div>
         </div>
   )

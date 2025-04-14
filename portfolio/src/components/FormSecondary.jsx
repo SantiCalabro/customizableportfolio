@@ -1,7 +1,6 @@
 import experienceIcon from "../assets/experience-white.svg"
 import FormField from "./FormField"
 export default function FormSecondary({ fields, values, errors, touched, handleChange, handleBlur, onSubmit}) {
-console.log(fields)
   return (
     <div className="flex flex-col">
         <div className="pt-4 pb-8 px-10 rounded-t-2xl header flex bg-mandarine">

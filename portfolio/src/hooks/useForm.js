@@ -6,17 +6,32 @@ export function useForm(initialValues, validations) {
   const [touched, setTouched] = useState({});
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    setValues({
+    const { name, value, files } = e.target;
+    if (files) {
+       const reader = new FileReader();
+       reader.onloadend = () => {
+         setValues((prevProfile) => ({
+           ...prevProfile,
+           file: reader.result,
+         }));
+       };
+       reader.readAsDataURL(files[0]);
+    }else{
+         setValues({
       ...values,
       [name]: value
     });
+    console.log(values)
+    }
 
     if (touched[name]) {
       validateField(name, value);
     }
-    console.log(values)
+  
+  
   };
+
+
 
   const handleBlur = (e) => {
     const { name } = e.target;
@@ -25,7 +40,6 @@ export function useForm(initialValues, validations) {
       [name]: true
     });
     validateField(name, values[name]);
-    console.log(name)
   };
 
   const validateField = (name, value) => {
@@ -34,7 +48,6 @@ export function useForm(initialValues, validations) {
       ...errors,
       [name]: newErrors[name] || ''
     });
-
   };
 
   const handleSubmit = (callback) => (e) => {
@@ -47,10 +60,12 @@ export function useForm(initialValues, validations) {
       allTouched[key] = true;
     });
     setTouched(allTouched);
-
     if (Object.values(newErrors).every(error => !error)) {
         callback(values);
     }
+    setValues(initialValues);
+    setTouched({});
+
   };
 
   return {
@@ -59,6 +74,7 @@ export function useForm(initialValues, validations) {
     touched,
     handleChange,
     handleBlur,
-    handleSubmit
+    handleSubmit, 
+
   };
 }

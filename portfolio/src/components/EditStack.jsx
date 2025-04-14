@@ -29,7 +29,7 @@ export default function EditStack() {
       label: "Add Technology",
       name: "technology",
       placeholder: "Technology",
-      width: "w-[49%]",
+      width: "w-[49%] h-full",
       type: "text",
     },
     {
