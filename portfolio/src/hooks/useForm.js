@@ -21,17 +21,13 @@ export function useForm(initialValues, validations) {
       ...values,
       [name]: value
     });
-    console.log(values)
+
     }
 
     if (touched[name]) {
       validateField(name, value);
-    }
-  
-  
+    }   
   };
-
-
 
   const handleBlur = (e) => {
     const { name } = e.target;

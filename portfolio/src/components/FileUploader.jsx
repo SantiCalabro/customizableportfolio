@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react'
 
-export default function FileUploader({ id, name, onChange, width, styles }) {
+export default function FileUploader({ id, name, onChange, width, styles, onBlur }) {
   const fileInputRef = useRef(null)
   const [dragging, setDragging] = useState(false)
   const [fileName, setFileName] = useState(null)
@@ -20,6 +20,7 @@ export default function FileUploader({ id, name, onChange, width, styles }) {
   }
 
   return (
+    <>
     <div
       onClick={() => fileInputRef.current.click()}
       onDragOver={(e) => {
@@ -40,6 +41,7 @@ export default function FileUploader({ id, name, onChange, width, styles }) {
         accept="image/*,application/pdf,.doc,.docx"
         className="hidden"
         onChange={handleFileChange}
+        onBlur={onBlur}
       />
 
       <p className="white font-semibold text-sm">
@@ -48,5 +50,9 @@ export default function FileUploader({ id, name, onChange, width, styles }) {
           : 'Click or drag and drop a file here (PDF, DOC, or image)'}
       </p>
     </div>
+    {!fileName && (
+            <p className="poppins text-xs mt-1 text-red-500">You must choose an icon</p>
+    )}
+    </>
   )
 }

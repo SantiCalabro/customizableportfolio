@@ -1,6 +1,7 @@
 import FormStack from "./FormStack";
 import { useState } from "react";
-
+import { useForm } from '../hooks/useForm';
+import { stackValidation, initialStackValues } from '../validations/stack';
 export default function EditStack() {
   const devSkills = [
     { id: 1, technology: "JavaScript", profession: "Development" },
@@ -20,68 +21,60 @@ export default function EditStack() {
 
   const [devStack, setDevStack] = useState(devSkills);
   const [designStack, setDesignStack] = useState(designSkills);
-  const [devValues, setDevValues] = useState({ technology: "", icon: null });
-  const [designValues, setDesignValues] = useState({ technology: "", icon: null });
-  const [propsKey, setPropKey] = useState(0);
 
-  const fields = [
+  const [propsKey, setPropKey] = useState(0);
+  
+  const devForm = useForm(initialStackValues, stackValidation);
+  const designForm = useForm(initialStackValues, stackValidation);
+  
+  const formFields = [
     {
+      id: "technology",
       label: "Add Technology",
       name: "technology",
       placeholder: "Technology",
-      width: "w-[49%] h-full",
+      width: "w-full h-full",
       type: "text",
     },
     {
-      label: "Add Icon",
-      name: "icon",
-      width: "w-[49%]",
+      id: "file",
+      label: "Add Icon",  
+      name: "file",
+      width: "w-full h-[150px]",
       type: "file",
     },
   ];
 
-  const handleChange = (e, profession) => {
-    const { name, value, files } = e.target;
-    const setValues = profession === "Development" ? setDevValues : setDesignValues;
-    
-    if (files) {
-      const file = files[0] || "";
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        setValues((prev) => ({
-          ...prev,
-          icon: reader.result,
-        }));
-      };
-      reader.readAsDataURL(file);
-    } else {
-      setValues((prev) => ({
-        ...prev,
-        [name]: value,
-      }));
-    }
-  };
 
   const handleClick = (e, profession) => {
     e.preventDefault();
-    
+  
+    const currentForm = profession === "Development" ? devForm : designForm;
+    const currentValues = currentForm.values;
+    const currentErrors = stackValidation(currentValues);
+  
+    if (Object.keys(currentErrors).length > 0) {
+      return;
+    }
+  
     const newItem = {
       id: Date.now(),
-      technology: profession === "Development" ? devValues.technology : designValues.technology,
-      icon: profession === "Development" ? devValues.icon : designValues.icon,
+      technology: currentValues.technology,
+      file: currentValues.file,
       profession,
     };
-
+  
     if (profession === "Development") {
       setDevStack((prev) => [...prev, newItem]);
-      setDevValues({ technology: "", icon: null });
+      devForm.resetForm(); 
     } else {
       setDesignStack((prev) => [...prev, newItem]);
-      setDesignValues({ technology: "", icon: null });
+      designForm.resetForm();
     }
-
+  
     setPropKey((prev) => prev + 1);
   };
+  
 
   const handleRemove = (id, profession) => {
     if (profession === "Development") {
@@ -92,32 +85,38 @@ export default function EditStack() {
   };
 
   return (
-    <div className="flex flex-col w-full gap-10 px-40 py-20">
-      <FormStack
-        formKey={`dev-${propsKey}`}
-        values={devValues}
-        fields={fields}
-        handleRemove={handleRemove}
-        handleClick={handleClick}
-        stack={devStack}
-        profession="Development"
-        label="For Development"
-        handleChange={(e) => handleChange(e, "Development")}
-      />
-      <FormStack
-        formKey={`design-${propsKey}`}
-        values={designValues}
-        fields={fields}
-        handleRemove={handleRemove}
-        handleClick={handleClick}
-        stack={designStack}
-        profession="Design"
-        label="For Design"
-        handleChange={(e) => handleChange(e, "Design")}
-      />
-      <div className="flex justify-center gap-10 mt-10">
-        <button className="bg-mandarine px-10 py-1 font-bold rounded-full white">Save Changes</button>
-      </div>
+    <div className="flex flex-col py-20">
+    <div className="flex w-full gap-10 px-40 ">
+      <div className="w-1/2">
+     <FormStack
+      formKey={`dev-${propsKey}`}
+      fields={formFields}
+      handleRemove={handleRemove}
+      handleClick={handleClick}
+      stack={devStack}
+      profession="Development"
+      label="For Development"
+      {...devForm}
+    />
     </div>
+
+    <div className="w-1/2">
+    <FormStack
+      formKey={`design-${propsKey}`}
+      fields={formFields}
+      handleRemove={handleRemove}
+      handleClick={handleClick}
+      stack={designStack}
+      profession="Design"
+      label="For Design"
+      {...designForm}
+    />
+    </div>
+
+    </div>
+    <div className="flex justify-center gap-10 mt-10">
+    <button className="bg-mandarine px-14 py-1 font-bold rounded-full white" >Save Changes</button>
+   </div>
+   </div>
   );
 }

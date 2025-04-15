@@ -4,10 +4,10 @@ import plusIcon from "../assets/plus-icon.svg";
 import Chip from "./Chip";
 import CrossIcon from "../assets/orange-bg-cross.svg";
 
-export default function FormStack({ label, handleChange, stack, handleClick, handleRemove, profession, fields, values }) {
+export default function FormStack({ label, handleChange, stack, handleClick, handleRemove, profession, fields, values, handleBlur, errors, touched }) {
   return (
     <div>
-      <div className="flex flex-col">
+      <div className="flex flex-col ">
         <div className="pt-4 pb-8 px-10 rounded-t-2xl header flex bg-mandarine">
           <img src={experienceIcon} alt="Add A Professional Experience" />
           <h4 className="white font-bold ml-2">Add Technologies</h4>
@@ -17,7 +17,8 @@ export default function FormStack({ label, handleChange, stack, handleClick, han
             <div className="flex flex-col border-primary-gray border-t-0 rounded-2xl pt-5 pb-10 px-10 bg-black">
               <h4 className="white font-bold text-2xl">{label}</h4>
               <div className="flex w-full border-b-primary-gray pb-5">
-                <div className="flex gap-10 justify-between items-end pt-5">
+                <div className="flex gap-10 flex-col w-full pt-5 pb-10">
+                
                   {fields.map((field) => (
                     <FormField
                       key={field.name}
@@ -29,19 +30,23 @@ export default function FormStack({ label, handleChange, stack, handleClick, han
                       type={field.type}
                       id={field.name}
                       onChange={handleChange}
+                      error={errors[field.name]}
+                      onBlur={handleBlur}
+                      touched={touched}
                     />
                   ))}
+           
                   <button
-                    onClick={(e) => handleClick(e, profession)}
+                    onClick={(e) => handleClick(e, profession)} 
                     type="button"
-                    className="bg-mandarine h-fit flex items-center justify-center rounded-full px-8 py-1 white font-bold"
+                    className="bg-mandarine h-fit w-60 flex items-center justify-center rounded-full px-8 py-1 white font-bold"
                   >
                     <img className="mr-2" src={plusIcon} alt="Add" />
                     Add
                   </button>
                 </div>
               </div>
-              <div className="flex pt-5 gap-4">
+              <div className="flex flex-wrap pt-5 gap-4">
                 {stack.map((el) => (
                   <Chip
                     handleRemove={handleRemove}
