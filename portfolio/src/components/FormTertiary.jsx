@@ -1,7 +1,7 @@
 import experienceIcon from "../assets/experience-white.svg"
 import FormField from "./FormField"
-import plusIcon from "../assets/plus-icon.svg"
-export default function FormTertiary({formFields}) {
+
+export default function FormTertiary({fields, values, errors, touched, handleChange, handleBlur, onSubmit}) {
   return (
      <div className="flex flex-col">
             <div className="pt-4 pb-8 px-10 rounded-t-2xl header flex bg-mandarine">
@@ -9,48 +9,64 @@ export default function FormTertiary({formFields}) {
               <h4 className="white font-bold ml-2">Add A New Project</h4>
             </div>
             <div className="mt-[-20px]">
-            <form action="submit">
+            <form action="submit" onSubmit={onSubmit}>
             <div className="flex flex-col border-primary-gray border-t-0 rounded-2xl pt-5 pb-10 px-10 gap-10 bg-black">
                 <div className="flex gap-10 ">
                     <div className="flex flex-wrap justify-between w-1/2 pt-5">
-                    {formFields && formFields.slice(0, 3).map((field, index) => (
+                    {fields && fields.slice(0, 3).map((field, index) => (
                         <FormField
-                        key={index}
-                        label={field.label}
-                        id={field.id}
-                        placeholder={field.placeholder}
-                        width={field.width}
-                        styles={field.styles}
-                        type={field.type}
+                            key={index}
+                            field={field}
+                            label={field.label}
+                            value={values[field.name] }
+                            name={field.name}
+                            placeholder = {field.placeholder}
+                            styles={field.styles}
+                            error={errors[field.name]}
+                            touched={touched[field.name]}
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                            type={field.type || "text"}
                         />
                     ))}
                     </div>
                     <div className="flex flex-wrap justify-between w-1/2 pt-5">
-                    {formFields && formFields.slice(3,5).map((field, index) => (
+                    {fields && fields.slice(3,5).map((field, index) => (
                         <FormField
-                        key={index}
-                        label={field.label}
-                        id={field.id}
-                        placeholder={field.placeholder}
-                        width={field.width}
-                        styles={field.styles}
-                        type={field.type}
-                        fieldType={field.fieldType}
+                            key={index}
+                            field={field}
+                            label={field.label}
+                            value={values[field.name] }
+                            name={field.name}
+                            placeholder = {field.placeholder}
+                            styles={field.styles}
+                            error={errors[field.name]}
+                            touched={touched[field.name]}
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                            type={field.type || "text"}
+                            fieldType={field.fieldType}
                         />
                     ))}
                     </div>
                 </div>
                 <div className="flex gap-10">
-                {formFields && formFields.slice(5).map((field, index) => (
+                {fields && fields.slice(5).map((field, index) => (
                         <FormField
-                        key={index}
-                        label={field.label}
-                        id={field.id}
-                        placeholder={field.placeholder}
-                        width={field.width}
-                        styles={field.styles}
-                        type={field.type}
-                        fieldType={field.fieldType}
+                            key={index}
+                            field={field}
+                            label={field.label}
+                            value={values[field.name] }
+                            name={field.name}
+                            placeholder = {field.placeholder}
+                            styles={field.styles}
+                            width={field.width}
+                            error={errors[field.name]}
+                            touched={touched[field.name]}
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                            type={field.type || "text"}
+                            fieldType={field.fieldType}
                         />
                     ))}
                 </div>

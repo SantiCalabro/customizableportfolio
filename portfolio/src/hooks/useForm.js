@@ -7,13 +7,16 @@ export function useForm(initialValues, validations) {
 
   const handleChange = (e) => {
     const { name, value, files } = e.target;
+    console.log(e.target.name)
     if (files) {
+    
        const reader = new FileReader();
        reader.onloadend = () => {
          setValues((prevProfile) => ({
            ...prevProfile,
-           file: reader.result,
+           [e.target.name]: reader.result,
          }));
+         console.log(values)
        };
        reader.readAsDataURL(files[0]);
     }else{
@@ -21,12 +24,14 @@ export function useForm(initialValues, validations) {
       ...values,
       [name]: value
     });
-
+ console.log(values)
     }
 
     if (touched[name]) {
       validateField(name, value);
     }   
+
+   
   };
 
   const handleBlur = (e) => {

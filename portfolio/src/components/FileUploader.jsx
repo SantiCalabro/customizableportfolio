@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react'
 
-export default function FileUploader({ id, name, onChange, width, styles, onBlur }) {
+export default function   FileUploader({ id, name, onChange, width, styles, onBlur }) {
   const fileInputRef = useRef(null)
   const [dragging, setDragging] = useState(false)
   const [fileName, setFileName] = useState(null)
@@ -8,7 +8,7 @@ export default function FileUploader({ id, name, onChange, width, styles, onBlur
   const handleDrop = (e) => {
     e.preventDefault()
     setDragging(false)
-    const file = e.dataTransfer.files[0]
+    const file = name === file ? e.dataTransfer.files[0] : e.dataTransfer.files;
     setFileName(file.name)
     if (onChange) onChange({ target: { name, files: [file] } })
   }
@@ -38,6 +38,7 @@ export default function FileUploader({ id, name, onChange, width, styles, onBlur
         id={id}
         name={name}
         type="file"
+        multiple
         accept="image/*,application/pdf,.doc,.docx"
         className="hidden"
         onChange={handleFileChange}

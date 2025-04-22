@@ -18,7 +18,3 @@ export const experienceValidation = (values) => {
     description: ''
   };
 
-  export const initialStackValues = {
-    technology: '',
-    icon: '',
-  };
